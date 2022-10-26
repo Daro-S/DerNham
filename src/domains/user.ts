@@ -1,3 +1,5 @@
+import { IPaginate } from "./paginate";
+import { IVendor } from "./vendor";
 export interface INotificationData {
   id: number;
   type: number;
@@ -43,3 +45,5 @@ export interface IProfile {
     filename: string;
   };
 }
+
+export interface IFavorite extends IPaginate<IVendor> {}

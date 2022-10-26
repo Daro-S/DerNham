@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 import {
   Button,
   Container,
@@ -8,35 +8,35 @@ import {
   Popover,
   Divider,
   Title,
-} from '@mantine/core';
-import {useTranslation} from 'next-i18next';
-import {BiBell, BiCart} from 'react-icons/bi';
-import Notifications from './Notifications';
-import Profile from './Profile';
-import Logo from './Logo';
+} from "@mantine/core";
+import { useTranslation } from "next-i18next";
+import { BiBell, BiCart } from "react-icons/bi";
+import Notifications from "./Notifications";
+import Profile from "./Profile";
+import Logo from "./Logo";
 
 const HEADER_HEIGHT = 60;
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles((theme) => ({
   wrapper: {
     marginBottom: HEADER_HEIGHT,
   },
   inner: {
     height: HEADER_HEIGHT,
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   links: {
-    [theme.fn.smallerThan('sm')]: {
-      display: 'none',
+    [theme.fn.smallerThan("sm")]: {
+      display: "none",
     },
   },
 }));
 
 export function Header() {
-  const {classes} = useStyles();
-  const {t} = useTranslation();
+  const { classes } = useStyles();
+  const { t } = useTranslation();
 
   return (
     <div className={classes.wrapper}>
@@ -49,8 +49,9 @@ export function Header() {
                 component="a"
                 leftIcon={<BiCart size={18} />}
                 variant="subtle"
-                color="dark">
-                {t('cart')}
+                color="dark"
+              >
+                {t("cart")}
               </Button>
             </Link>
             <Popover width={300} withArrow exitTransitionDuration={0}>
@@ -58,13 +59,14 @@ export function Header() {
                 <Button
                   leftIcon={<BiBell size={18} />}
                   variant="subtle"
-                  color="dark">
-                  {t('inbox')}
+                  color="dark"
+                >
+                  {t("inbox")}
                 </Button>
               </Popover.Target>
               <Popover.Dropdown>
                 <Title order={4} mb="xs">
-                  {t('new')}
+                  {t("new")}
                 </Title>
                 <Notifications />
               </Popover.Dropdown>

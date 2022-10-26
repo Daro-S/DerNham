@@ -1,9 +1,9 @@
-import {useQuery} from '@tanstack/react-query';
-import {Account} from 'next-auth';
-import {getProviders} from 'next-auth/react';
+import { useQuery } from "@tanstack/react-query";
+import { Account } from "next-auth";
+import { getProviders } from "next-auth/react";
 
-import {IUser} from '~/domains/user';
-import {api} from './api';
+import { IUser } from "~/domains/user";
+import { api } from "./api";
 
 export interface IAuthResponse {
   user: IUser;
@@ -12,9 +12,9 @@ export interface IAuthResponse {
 
 export const handleAuth = async (account: Account) => {
   switch (account.provider) {
-    case 'google':
+    case "google":
       return loginWithGoogle(account.id_token!);
-    case 'facebook':
+    case "facebook":
       return loginWithFacebook(account.access_token!);
     // case "apple":
     //   return loginWithApple(token);
@@ -25,7 +25,7 @@ export const handleAuth = async (account: Account) => {
 
 const loginWithGoogle = async (token: string) => {
   try {
-    const {data} = await api.post<IAuthResponse>('/auth/google', {
+    const { data } = await api.post<IAuthResponse>("/auth/google", {
       token,
     });
     return data;
@@ -37,7 +37,7 @@ const loginWithGoogle = async (token: string) => {
 
 const loginWithFacebook = async (token: string) => {
   try {
-    const {data} = await api.post<IAuthResponse>('/auth/facebook', {
+    const { data } = await api.post<IAuthResponse>("/auth/facebook", {
       token,
     });
     return data;
@@ -47,9 +47,9 @@ const loginWithFacebook = async (token: string) => {
   }
 };
 
-const _loginWithApple = async (token: string) => {
+const loginWithApple = async (token: string) => {
   try {
-    const {data} = await api.post<IAuthResponse>('/auth/apple', {
+    const { data } = await api.post<IAuthResponse>("/auth/apple", {
       token,
     });
     return data;
@@ -60,5 +60,5 @@ const _loginWithApple = async (token: string) => {
 };
 
 export const useProviders = () => {
-  return useQuery(['providers'], () => getProviders());
+  return useQuery(["providers"], () => getProviders());
 };

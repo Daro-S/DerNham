@@ -1,8 +1,8 @@
-import {decode} from 'blurhash';
+import { decode } from "blurhash";
 
 // https://gist.github.com/mattiaz9/53cb67040fa135cb395b1d015a200aff
 export function blurHashToDataURL(
-  hash: string | undefined,
+  hash: string | undefined
 ): string | undefined {
   if (!hash) return undefined;
 
@@ -14,14 +14,14 @@ export function blurHashToDataURL(
 // thanks to https://github.com/wheany/js-png-encoder
 function parsePixels(pixels: Uint8ClampedArray, width: number, height: number) {
   const pixelsString = [...pixels]
-    .map(byte => String.fromCharCode(byte))
-    .join('');
+    .map((byte) => String.fromCharCode(byte))
+    .join("");
   const pngString = generatePng(width, height, pixelsString);
   const dataURL =
-    typeof Buffer !== 'undefined'
-      ? Buffer.from(getPngArray(pngString)).toString('base64')
+    typeof Buffer !== "undefined"
+      ? Buffer.from(getPngArray(pngString)).toString("base64")
       : btoa(pngString);
-  return 'data:image/png;base64,' + dataURL;
+  return "data:image/png;base64," + dataURL;
 }
 
 function getPngArray(pngString: string) {
@@ -56,13 +56,13 @@ function generatePng(width: number, height: number, rgbaString: string) {
   // Functions
   function inflateStore(data: string) {
     const MAX_STORE_LENGTH = 65535;
-    let storeBuffer = '';
+    let storeBuffer = "";
     let remaining;
     let blockType;
 
     for (let i = 0; i < data.length; i += MAX_STORE_LENGTH) {
       remaining = data.length - i;
-      blockType = '';
+      blockType = "";
 
       if (remaining <= MAX_STORE_LENGTH) {
         blockType = String.fromCharCode(0x01);
@@ -76,7 +76,7 @@ function generatePng(width: number, height: number, rgbaString: string) {
         String.fromCharCode(remaining & 0xff, (remaining & 0xff00) >>> 8);
       storeBuffer += String.fromCharCode(
         ~remaining & 0xff,
-        (~remaining & 0xff00) >>> 8,
+        (~remaining & 0xff00) >>> 8
       );
 
       storeBuffer += data.substring(i, i + remaining);
@@ -118,7 +118,7 @@ function generatePng(width: number, height: number, rgbaString: string) {
       (dword & 0xff000000) >>> 24,
       (dword & 0x00ff0000) >>> 16,
       (dword & 0x0000ff00) >>> 8,
-      dword & 0x000000ff,
+      dword & 0x000000ff
     );
   }
 
@@ -143,15 +143,15 @@ function generatePng(width: number, height: number, rgbaString: string) {
       // interlacing: 0=none
       String.fromCharCode(0);
 
-    return createChunk(13, 'IHDR', IHDRdata);
+    return createChunk(13, "IHDR", IHDRdata);
   }
 
   // PNG creations
 
-  const IEND = createChunk(0, 'IEND', '');
+  const IEND = createChunk(0, "IEND", "");
   const IHDR = createIHDR(width, height);
 
-  let scanlines = '';
+  let scanlines = "";
   let scanline;
 
   for (let y = 0; y < rgbaString.length; y += width * 4) {
@@ -172,8 +172,8 @@ function generatePng(width: number, height: number, rgbaString: string) {
     dwordAsString(adler32(scanlines));
   const IDAT = createChunk(
     compressedScanlines.length,
-    'IDAT',
-    compressedScanlines,
+    "IDAT",
+    compressedScanlines
   );
 
   const pngString = SIGNATURE + IHDR + IDAT + IEND;

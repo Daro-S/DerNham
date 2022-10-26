@@ -1,4 +1,4 @@
-const {i18n} = require('./next-i18next.config');
+const { i18n } = require("./next-i18next.config");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,7 +6,7 @@ const nextConfig = {
   swcMinify: true,
   i18n,
   images: {
-    domains: ['nham-api.prointix.com'],
+    domains: ["nham-api.prointix.com"],
   },
 };
 

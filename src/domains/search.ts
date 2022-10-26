@@ -1,5 +1,5 @@
-import {AutocompleteItem} from '@mantine/core';
-import {IUploadImage} from './image';
+import { AutocompleteItem } from "@mantine/core";
+import { IUploadImage } from "./image";
 
 export interface ISearchSuggest extends AutocompleteItem {
   id: number;

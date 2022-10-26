@@ -1,26 +1,26 @@
-import dayjs from 'dayjs';
-import Image from 'next/image';
-import {Box, createStyles, Stack, Text} from '@mantine/core';
-import {useNotifications} from '~/services/user';
+import dayjs from "dayjs";
+import Image from "next/image";
+import { Box, createStyles, Stack, Text } from "@mantine/core";
+import { useNotifications } from "~/services/user";
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles((theme) => ({
   notificationItem: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: theme.radius.sm,
     padding: theme.spacing.xs,
 
-    '&:hover': {
+    "&:hover": {
       backgroundColor: theme.colors.brand[0],
-      cursor: 'pointer',
+      cursor: "pointer",
     },
   },
 }));
 
 function Notifications() {
-  const {classes} = useStyles();
-  const {data} = useNotifications();
+  const { classes } = useStyles();
+  const { data } = useNotifications();
 
   return (
     <Stack>
@@ -33,7 +33,7 @@ function Notifications() {
               height={50}
               layout="fixed"
               alt="notification"
-              style={{borderRadius: 50}}
+              style={{ borderRadius: 50 }}
             />
           </div>
           <Box ml="sm">
