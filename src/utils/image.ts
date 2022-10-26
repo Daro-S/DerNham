@@ -1,4 +1,4 @@
-import {blurHashToDataURL} from './blurhashDataURL';
+import { blurHashToDataURL } from "./blurhashDataURL";
 
 type Options = {
   width: number;
@@ -16,14 +16,14 @@ export function buildImageUrl(path?: string, opts?: Options): string {
 }
 
 export function buildImageUrlThumb(path?: string): string {
-  return buildImageUrl(path, {width: 720, height: 480});
+  return buildImageUrl(path, { width: 720, height: 480 });
 }
 
 type ThumbOpt = {
   path?: string;
   blurhash?: string;
 };
-export function buildThumb({path, blurhash}: ThumbOpt) {
+export function buildThumb({ path, blurhash }: ThumbOpt) {
   return {
     url: buildImageUrlThumb(path),
     blurDataURL: blurHashToDataURL(blurhash),

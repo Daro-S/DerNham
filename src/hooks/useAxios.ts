@@ -1,5 +1,5 @@
-import {useSession} from 'next-auth/react';
-import {api} from '~/services/api';
+import { useSession } from "next-auth/react";
+import { api } from "~/services/api";
 
 export const useAxios = () => {
   const session = useSession();

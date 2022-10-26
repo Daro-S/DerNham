@@ -1,6 +1,6 @@
-import {IUploadImage} from './image';
-import {IPromotion} from './promotion';
-import {IPaginate} from './paginate';
+import { IUploadImage } from "./image";
+import { IPromotion } from "./promotion";
+import { IPaginate } from "./paginate";
 
 export interface IVendor {
   id: number;
@@ -58,7 +58,7 @@ export interface IVendorQueryString {
   lat?: number;
   long?: number;
   zone?: number;
-  orderBy?: 'asc' | 'desc';
+  orderBy?: "asc" | "desc";
 }
 
 export interface IVendorPagination extends IPaginate<IVendor> {}

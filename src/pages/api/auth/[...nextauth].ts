@@ -1,10 +1,11 @@
-import type {NextAuthOptions} from 'next-auth';
-import NextAuth from 'next-auth/next';
-import GoogleProvider from 'next-auth/providers/google';
-import FacebookProvider from 'next-auth/providers/facebook';
+import type { NextAuthOptions } from "next-auth";
+import NextAuth from "next-auth/next";
+import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 // import AppleProvider from "next-auth/providers/apple";
-import {handleAuth} from '~/services/auth';
-import {isTokenExpired} from '~/utils';
+import { handleAuth } from "~/services/auth";
+import { api } from "~/services/api";
+import { isTokenExpired } from "~/utils";
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.JWT_SECRET,
@@ -23,10 +24,10 @@ export const authOptions: NextAuthOptions = {
     // }),
   ],
   pages: {
-    signIn: '/auth/login',
+    signIn: "/auth/login",
   },
   callbacks: {
-    async jwt({token, user, account}) {
+    async jwt({ token, user, account }) {
       if (user && account) {
         const resp = await handleAuth(account);
         if (resp) {
@@ -40,9 +41,9 @@ export const authOptions: NextAuthOptions = {
 
       return token;
     },
-    session({session, token}) {
+    session({ session, token }) {
       if (!token.accessToken || isTokenExpired(token.accessToken)) {
-        throw new Error('Unauthorized');
+        throw new Error("Unauthorized");
       }
 
       session.accessToken = token.accessToken as string;

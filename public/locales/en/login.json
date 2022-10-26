@@ -1,6 +1,1 @@
-{
-  "description": "Please choose your login options below",
-  "header": "Welcome to Dernham",
-  "socialButton": "Sign in with {{value}}",
-  "title": "Login"
-}
+{"description":"Please choose your login options below","header":"Welcome to Dernham","socialButton":"Sign in with {{value}}","title":"Login"}

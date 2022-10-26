@@ -1,19 +1,16 @@
-export function serialize(
-  obj: Record<string, any> = {},
-  prefix?: string,
-): string {
+export function serialize(obj: Record<string, any> = {}, prefix?: string): string {
   var str = [],
     p;
   for (p in obj) {
     if (obj.hasOwnProperty(p)) {
-      var k = prefix ? prefix + '[' + p + ']' : p,
+      var k = prefix ? prefix + "[" + p + "]" : p,
         v = obj[p];
       str.push(
-        v !== null && typeof v === 'object'
+        v !== null && typeof v === "object"
           ? serialize(v, k)
-          : encodeURIComponent(k) + '=' + encodeURIComponent(v),
+          : encodeURIComponent(k) + "=" + encodeURIComponent(v)
       );
     }
   }
-  return str.join('&');
+  return str.join("&");
 }

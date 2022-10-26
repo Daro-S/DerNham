@@ -1,6 +1,6 @@
-import {MouseEventHandler} from 'react';
-import {Button, Image} from '@mantine/core';
-import {useTranslation} from 'next-i18next';
+import { MouseEventHandler } from "react";
+import { Button, Image } from "@mantine/core";
+import { useTranslation } from "next-i18next";
 
 type Props = {
   id: any;
@@ -8,8 +8,8 @@ type Props = {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
-function SocialButton({id, name, onClick}: Props) {
-  const {t} = useTranslation(['login']);
+function SocialButton({ id, name, onClick }: Props) {
+  const { t } = useTranslation(["login"]);
 
   return (
     <Button
@@ -19,18 +19,19 @@ function SocialButton({id, name, onClick}: Props) {
       variant="outline"
       onClick={onClick}
       leftIcon={<Image src={`/images/${id}.png`} alt={name} width={15} />}
-      styles={theme => ({
+      styles={(theme) => ({
         root: {
           borderColor: theme.colors.dark[0],
         },
         inner: {
-          justifyContent: 'flex-start',
+          justifyContent: "flex-start",
         },
         label: {
           fontSize: theme.fontSizes.sm,
         },
-      })}>
-      {t('login.socialButton', {value: name})}
+      })}
+    >
+      {t("login.socialButton", { value: name })}
     </Button>
   );
 }

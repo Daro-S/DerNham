@@ -1,13 +1,14 @@
-import Head from 'next/head';
-import {ReactNode} from 'react';
-import {Header} from '../header';
+import Head from "next/head";
+import { ReactNode } from "react";
+import Footer from "../footer/Footer";
+import { Header } from "../header";
 
 type Props = {
   title: string;
   children: ReactNode;
 };
 
-export function Layout({title, children}: Props) {
+export function Layout({ title, children }: Props) {
   return (
     <>
       <Head>
@@ -15,6 +16,7 @@ export function Layout({title, children}: Props) {
       </Head>
       <Header />
       {children}
+      <Footer />
     </>
   );
 }
