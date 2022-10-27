@@ -6,25 +6,25 @@ import {
   List,
   Space,
   Text,
-} from "@mantine/core";
-import React from "react";
-import { AiFillFacebook } from "react-icons/ai";
-import { SiTelegram } from "react-icons/si";
-import { FaTwitterSquare } from "react-icons/fa";
-import { BsYoutube } from "react-icons/bs";
+} from '@mantine/core';
+import React from 'react';
+import {AiFillFacebook} from 'react-icons/ai';
+import {SiTelegram} from 'react-icons/si';
+import {FaTwitterSquare} from 'react-icons/fa';
+import {BsYoutube} from 'react-icons/bs';
 
 const Footer = () => {
   const wrapper: CSSObject = {
-    justifyContent: "space-between",
-    alignItems: "flex-start",
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
   };
   //style={{ fontSize: 16, fontWeight: 600, color: "#1A1A1A" }}
   return (
-    <div style={{ backgroundColor: "#F2F9FF" }}>
+    <div style={{backgroundColor: '#F2F9FF'}}>
       <Container size="lg" pb={120.78} pt={50}>
         <div>
           <Group sx={wrapper}>
-            <Grid style={{ width: "25%" }}>
+            <Grid style={{width: '25%'}}>
               <Text weight={600} size="md">
                 Dernham
               </Text>
@@ -33,14 +33,10 @@ const Footer = () => {
                 size="sm"
                 pb="lg"
                 weight={400}
-                color="rgba(26, 26, 26, 0.8)"
-              >
-                here’s more to DerNham than just showing restaurants. You get to
-                book a table and food from your favorite restaurant and let the
-                vendor prepare everything for your arrival beforehand without
-                the wait. Moreover, you will receive a recommendation about
-                popular places, newbie restaurants, and promotions offered every
-                day.
+                color="rgba(26, 26, 26, 0.8)">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus,
+                libero massa, felis sit eu.Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Risus, libero massa, felis sit eu.
               </Text>
               <Grid>
                 <Grid.Col>
@@ -49,7 +45,7 @@ const Footer = () => {
                   </Text>
                 </Grid.Col>
                 <Grid.Col>
-                  <Group style={{ fontSize: 21, color: "#1A1A1A" }}>
+                  <Group style={{fontSize: 21, color: '#1A1A1A'}}>
                     <AiFillFacebook />
                     <SiTelegram />
                     <FaTwitterSquare />
@@ -66,8 +62,7 @@ const Footer = () => {
               <List
                 size="sm"
                 listStyleType="none"
-                style={{ color: "rgba(26, 26, 26, 0.8)" }}
-              >
+                style={{color: 'rgba(26, 26, 26, 0.8)'}}>
                 <List.Item>Angkor Wat</List.Item>
                 <List.Item>Chongkranroy community</List.Item>
                 <List.Item>Phnom Khrom</List.Item>
@@ -84,8 +79,7 @@ const Footer = () => {
               <List
                 size="sm"
                 listStyleType="none"
-                style={{ color: "rgba(26, 26, 26, 0.8)" }}
-              >
+                style={{color: 'rgba(26, 26, 26, 0.8)'}}>
                 <List.Item>Siem Reap</List.Item>
                 <List.Item>Phnom Penh</List.Item>
                 <List.Item>Battambang</List.Item>

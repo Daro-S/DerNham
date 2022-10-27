@@ -1,4 +1,4 @@
-import { ButtonProps } from "@mantine/core";
+import {ButtonProps} from '@mantine/core';
 
 const ButtonDefaultProps: Partial<ButtonProps> = {};
 

@@ -1,8 +1,8 @@
-import { Container, Title } from "@mantine/core";
-import { GetStaticPaths, GetStaticProps } from "next";
+import {Container, Title} from '@mantine/core';
+import {GetStaticPaths, GetStaticProps} from 'next';
 
-import { Layout } from "~/components/core";
-import { serverTranslates } from "~/utils/translate";
+import {Layout} from '~/components/core';
+import {serverTranslates} from '~/utils/translate';
 
 const VendorDetailPage = () => {
   return (
@@ -14,16 +14,16 @@ const VendorDetailPage = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({locale}) => {
   return {
-    props: { ...(await serverTranslates(locale!)) },
+    props: {...(await serverTranslates(locale!))},
   };
 };
 
 export const getStaticPaths: GetStaticPaths = () => {
   return {
-    paths: [{ params: { id: "1" } }],
-    fallback: "blocking",
+    paths: [{params: {id: '1'}}],
+    fallback: 'blocking',
   };
 };
 

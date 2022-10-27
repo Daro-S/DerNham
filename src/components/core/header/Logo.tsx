@@ -1,28 +1,28 @@
-import { Group, Burger, Title, createStyles } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { useTranslation } from "next-i18next";
-import Image from "next/image";
-import Link from "next/link";
+import {Group, Burger, Title, createStyles} from '@mantine/core';
+import {useDisclosure} from '@mantine/hooks';
+import {useTranslation} from 'next-i18next';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(theme => ({
   burger: {
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
     },
   },
   link: {
-    textDecoration: "none",
+    textDecoration: 'none',
     color:
-      theme.colorScheme === "dark"
+      theme.colorScheme === 'dark'
         ? theme.colors.dark[0]
         : theme.colors.gray[9],
   },
 }));
 
 function Logo() {
-  const [opened, { toggle }] = useDisclosure(false);
-  const { classes } = useStyles();
-  const { t } = useTranslation();
+  const [opened, {toggle}] = useDisclosure(false);
+  const {classes} = useStyles();
+  const {t} = useTranslation();
 
   return (
     <Link href="/">
@@ -40,9 +40,9 @@ function Logo() {
             height={41}
             layout="fixed"
             alt="Logo"
-            style={{ borderRadius: 41 }}
+            style={{borderRadius: 41}}
           />
-          <Title size={20}>{t("name")}</Title>
+          <Title size={20}>{t('name')}</Title>
         </Group>
       </a>
     </Link>

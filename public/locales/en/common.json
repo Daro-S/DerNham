@@ -1,1 +1,18 @@
-{"booking":"Booking","cancel":"Cancel","cart":"Cart","discount":"discount","editProfile":"Edit Profile","guest":"Guest","inbox":"Inbox","login":"Login","logout":"Logout","myBooking":"My Booking","name":"DerNham","new":"New","saved":"Saved","search":"Search","version":"Version {{value}}","voucher":"Voucher"}
+{
+  "booking": "Booking",
+  "cancel": "Cancel",
+  "cart": "Cart",
+  "discount": "discount",
+  "editProfile": "Edit Profile",
+  "guest": "Guest",
+  "inbox": "Inbox",
+  "login": "Login",
+  "logout": "Logout",
+  "myBooking": "My Booking",
+  "name": "DerNham",
+  "new": "New",
+  "saved": "Saved",
+  "search": "Search",
+  "version": "Version {{value}}",
+  "voucher": "Voucher"
+}

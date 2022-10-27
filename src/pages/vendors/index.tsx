@@ -1,8 +1,8 @@
-import { Container, Title } from "@mantine/core";
-import { GetServerSideProps } from "next";
+import {Container, Title} from '@mantine/core';
+import {GetServerSideProps} from 'next';
 
-import { Layout } from "~/components/core";
-import { serverTranslates } from "~/utils/translate";
+import {Layout} from '~/components/core';
+import {serverTranslates} from '~/utils/translate';
 
 const VendorsPage = () => {
   return (
@@ -14,9 +14,9 @@ const VendorsPage = () => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async context => {
   return {
-    props: { ...(await serverTranslates(context.locale!)) },
+    props: {...(await serverTranslates(context.locale!))},
   };
 };
 

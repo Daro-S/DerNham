@@ -7,12 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "i18n:pull": "npx i18nexus pull -k fhy_DXRUh8K0t8GH339-Qg"
+    "postinstall": "husky install",
+    "i18n:pull": "npx i18nexus pull -k fhy_DXRUh8K0t8GH339-Qg",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/server": "^11.10.0",
-    "@mantine/carousel": "^5.5.5",
+    "@mantine/carousel": "^5.6.2",
     "@mantine/core": "^5.5.1",
     "@mantine/dates": "^5.5.5",
     "@mantine/form": "^5.5.5",
@@ -34,11 +36,24 @@
     "zod": "^3.19.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@types/node": "18.8.1",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "typescript": "4.8.4"
+  },
+  "lint-staged": {
+    "**/*": [
+      "prettier --write --ignore-unknown"
+    ]
   }
 }

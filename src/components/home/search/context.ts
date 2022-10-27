@@ -1,5 +1,5 @@
-import { createFormContext } from "@mantine/form";
-import { z } from "zod";
+import {createFormContext} from '@mantine/form';
+import {z} from 'zod';
 
 export const searchSchema = z.object({
   search: z.string(),

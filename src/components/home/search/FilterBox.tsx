@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 import {
   ActionIcon,
   Button,
@@ -9,25 +9,25 @@ import {
   ScrollArea,
   Text,
   Title,
-} from "@mantine/core";
+} from '@mantine/core';
 import {
   AiOutlineCalendar,
   AiOutlineClockCircle,
   AiOutlineMinus,
   AiOutlinePlus,
-} from "react-icons/ai";
-import { Calendar } from "@mantine/dates";
-import { IoPeopleOutline } from "react-icons/io5";
+} from 'react-icons/ai';
+import {Calendar} from '@mantine/dates';
+import {IoPeopleOutline} from 'react-icons/io5';
 import {
   convertTime12To24,
   convertTime24To12,
   dateFormat,
   getSelectTimes,
-} from "~/utils";
-import { useSearchFormContext } from "./context";
+} from '~/utils';
+import {useSearchFormContext} from './context';
 
-import { useDisclosure } from "@mantine/hooks";
-import { useTranslation } from "next-i18next";
+import {useDisclosure} from '@mantine/hooks';
+import {useTranslation} from 'next-i18next';
 
 export const FilterBox = () => {
   return (
@@ -40,16 +40,16 @@ export const FilterBox = () => {
 };
 
 export const SelectGuest = () => {
-  const { t } = useTranslation(["common", "home"]);
-  const { classes } = useStyles();
-  const { values, setFieldValue } = useSearchFormContext();
+  const {t} = useTranslation(['common', 'home']);
+  const {classes} = useStyles();
+  const {values, setFieldValue} = useSearchFormContext();
 
   function increase() {
-    setFieldValue("guest", values.guest + 1);
+    setFieldValue('guest', values.guest + 1);
   }
 
   function decrease() {
-    setFieldValue("guest", values.guest > 1 ? values.guest - 1 : 1);
+    setFieldValue('guest', values.guest > 1 ? values.guest - 1 : 1);
   }
 
   return (
@@ -60,18 +60,17 @@ export const SelectGuest = () => {
           color="dark"
           variant="white"
           leftIcon={<IoPeopleOutline />}
-          classNames={{ label: classes.btnLabel }}
-        >
-          {values.guest} {t("common.guest")}
+          classNames={{label: classes.btnLabel}}>
+          {values.guest} {t('common.guest')}
         </Button>
       </Popover.Target>
       <Popover.Dropdown py="lg">
-        <Title order={5}>{t("home.searchGuestTitle")}</Title>
+        <Title order={5}>{t('home.searchGuestTitle')}</Title>
         <Group mt="md" position="apart">
           <Group>
             <IoPeopleOutline />
             <Text size="sm">
-              {values.guest} {t("common.guest")}
+              {values.guest} {t('common.guest')}
             </Text>
           </Group>
           <Group>
@@ -82,8 +81,7 @@ export const SelectGuest = () => {
               color="brand"
               variant="filled"
               radius="xl"
-              onClick={increase}
-            >
+              onClick={increase}>
               <AiOutlinePlus />
             </ActionIcon>
           </Group>
@@ -94,12 +92,12 @@ export const SelectGuest = () => {
 };
 
 const SelectTime = () => {
-  const { classes } = useStyles();
-  const [opened, { close, toggle }] = useDisclosure(false);
-  const { values, setFieldValue } = useSearchFormContext();
+  const {classes} = useStyles();
+  const [opened, {close, toggle}] = useDisclosure(false);
+  const {values, setFieldValue} = useSearchFormContext();
 
   function onSelect(time: string) {
-    setFieldValue("time", convertTime12To24(time));
+    setFieldValue('time', convertTime12To24(time));
     close();
   }
 
@@ -113,15 +111,14 @@ const SelectTime = () => {
           variant="default"
           onClick={toggle}
           leftIcon={<AiOutlineClockCircle />}
-          classNames={{ label: classes.btnLabel }}
-        >
+          classNames={{label: classes.btnLabel}}>
           {convertTime24To12(values.time)}
         </Button>
       </Menu.Target>
 
       <Menu.Dropdown>
-        <ScrollArea style={{ height: 250 }}>
-          {times.map((item) => (
+        <ScrollArea style={{height: 250}}>
+          {times.map(item => (
             <Menu.Item key={item.day} onClick={() => onSelect(item.time)}>
               {item.time}
             </Menu.Item>
@@ -133,12 +130,12 @@ const SelectTime = () => {
 };
 
 const SelectDate = () => {
-  const { classes } = useStyles();
-  const [opened, { close, toggle }] = useDisclosure(false);
-  const { values, setFieldValue } = useSearchFormContext();
+  const {classes} = useStyles();
+  const [opened, {close, toggle}] = useDisclosure(false);
+  const {values, setFieldValue} = useSearchFormContext();
 
   function onChange(date: Date | null) {
-    setFieldValue("date", dateFormat(date!));
+    setFieldValue('date', dateFormat(date!));
     close();
   }
 
@@ -150,9 +147,8 @@ const SelectDate = () => {
           onClick={toggle}
           variant="default"
           leftIcon={<AiOutlineCalendar />}
-          classNames={{ label: classes.btnLabel }}
-        >
-          {dayjs(values.date).format("ddd DD MMM")}
+          classNames={{label: classes.btnLabel}}>
+          {dayjs(values.date).format('ddd DD MMM')}
         </Button>
       </Popover.Target>
       <Popover.Dropdown>
@@ -162,9 +158,9 @@ const SelectDate = () => {
   );
 };
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(theme => ({
   btnLabel: {
     fontSize: theme.fontSizes.sm,
-    fontWeight: "normal",
+    fontWeight: 'normal',
   },
 }));

@@ -1,1 +1,18 @@
-{"booking":"ការកក់ទុក","cancel":"បោះបង់","cart":"រទេះ","discount":"ការបញ្ចុះតម្លៃ","editProfile":"កែសម្រួលប្រវត្តិរូប","guest":"ភ្ញៀវ","inbox":"ប្រអប់សំបុត្រ","login":"ចូល","logout":"ចាកចេញ","myBooking":"ការកក់របស់ខ្ញុំ","name":"DerNham","new":"ថ្មី។","saved":"បានរក្សាទុក","search":"ស្វែងរក","version":"{{value}} កំណែ","voucher":"ប័ណ្ណទូទាត់"}
+{
+  "booking": "ការកក់ទុក",
+  "cancel": "បោះបង់",
+  "cart": "រទេះ",
+  "discount": "ការបញ្ចុះតម្លៃ",
+  "editProfile": "កែសម្រួលប្រវត្តិរូប",
+  "guest": "ភ្ញៀវ",
+  "inbox": "ប្រអប់សំបុត្រ",
+  "login": "ចូល",
+  "logout": "ចាកចេញ",
+  "myBooking": "ការកក់របស់ខ្ញុំ",
+  "name": "DerNham",
+  "new": "ថ្មី។",
+  "saved": "បានរក្សាទុក",
+  "search": "ស្វែងរក",
+  "version": "{{value}} កំណែ",
+  "voucher": "ប័ណ្ណទូទាត់"
+}
