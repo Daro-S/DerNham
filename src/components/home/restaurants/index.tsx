@@ -40,7 +40,7 @@ const ListRestaurants = () => {
                   <Badge
                     className={classes.badge}
                     radius={3}
-                    mt="75%"
+                    mt="71%"
                     size="lg">
                     {convertPromotionToString(
                       item.promotion.amount,
